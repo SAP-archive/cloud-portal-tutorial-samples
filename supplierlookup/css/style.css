@@ -1,0 +1,61 @@
+/* Enter your custom styles here */
+.supplier-container {
+	height: 360px;
+    background-color: #bbd0e5;
+    border-bottom: solid 5px #374754;
+    background-image: url('../asset/app_bg_image.jpg');
+    background-size: cover;
+    color: #333333;
+}
+
+.supplier-info .sapUiBlockLayoutCell .sapUiBlockCellContent {
+    padding: 1rem 1rem 0 !important;
+}
+
+.supplier-info {
+    margin: 0 4rem;
+    border-top: 2px solid #333;
+    background: rgba(255, 255, 255, 0.49);
+}
+
+.supplier-search-bar{
+	padding: 12px;
+}
+
+.mobile-card-container{
+	margin-bottom: -48px;
+    padding-top: 24px;
+    padding-right: 10px;
+}
+
+.mobile-card-container .mobile-card-icon{
+	-webkit-box-shadow: 0px 0px 2px 1px #a4a4a4;
+	-moz-box-shadow: 0px 0px 2px 1px #a4a4a4;
+	box-shadow: 0px 0px 2px 1px #a4a4a4;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #fff;
+    margin: 7px 0;
+    line-height:normal;
+    z-index: 1;
+}
+
+.mobile-card-container .mobile-card-icon:focus{
+	outline:none !important;
+}
+
+@media (max-width: 720px) {
+	.supplier-info {
+	    margin: 0rem;
+	}
+	.supplier-info .second-box.sapUiBlockLayoutCell .sapUiBlockCellContent {
+		margin-top: -1.1rem;
+	    padding-top: 0 !important;
+	}
+}
+
+@media (max-width: 480px) {
+	.supplier-container {
+		height: 720px;
+	}
+}

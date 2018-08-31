@@ -1,0 +1,11 @@
+[
+	{
+		"id": "hcp://supplierlookup/manifest.json",
+		"_entityType": "PORTAL_SITE_V2_TEMPLATE_APP_CONFIG",
+		"path": "",
+		"name": "Supplier Lookup",
+		"thumbnail": "sap-icon://employee-lookup",
+		"preview": "",
+		"categories": ["Supplier Portal"]
+	}
+]

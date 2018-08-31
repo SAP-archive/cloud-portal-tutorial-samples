@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" 
+xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<ActionSheet id="languageActionSheet" title="Select a Language" placement="Bottom" buttons="{path: 'languages>/'}">
+		<buttons>
+			<Button text="{languages>text}" app:key="{languages>key}" press="onLanguageSelected" />
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>

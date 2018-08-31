@@ -1,0 +1,74 @@
+<mvc:View controllerName="teched.supplierlookup.controller.SupplierDetails" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<l:VerticalLayout width="100%" class="supplier-container">
+		<l:content>
+			<SearchField id="searchField" width="100%" placeholder="{i18n>Search_Placeholder}" enableSuggestions="true" search="onSearch"
+				suggest="onSuggest" suggestionItems="{oSuppliers>/}" class="supplier-search-bar">
+				<suggestionItems>
+					<SuggestionItem text="{oSuppliers>Name}" description="[{i18n>Contact_Name}: {oSuppliers>FormattedContactName}]" key="{oSuppliers>Id}"/>
+				</suggestionItems>
+			</SearchField>
+			<VBox visible="{app>/supplierLoaded}">
+				<f:Form id="FormDisplay354wideDual" editable="false">
+					<f:title>
+						<core:Title text="{app>/supplier/Name} [{app>/supplier/Id}]"/>
+					</f:title>
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+							emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer title="{i18n>Company_Details}">
+							<f:formElements>
+								<f:FormElement label="{i18n>Address}" class="label">
+									<f:fields>
+										<Text text="{app>/supplier/FormattedAddress}"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="{i18n>Phone}" class="label">
+									<f:fields>
+										<Text text="{app>/supplier/Phone}" id="nameText"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="{i18n>Email}" class="label">
+									<f:fields>
+										<Link text="{app>/supplier/Email}" href="mailto:{app>/supplier/Email}"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="{i18n>Web_URL}" class="label">
+									<f:fields>
+										<Link text="{app>/supplier/WebAddress}" target="_blank" href="{app>/supplier/WebAddress}"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer title="{i18n>Contact_Details}">
+							<f:formElements>
+								<f:FormElement label="{i18n>Name}" class="label">
+									<f:fields>
+										<Text text="{app>/supplier/FormattedContactName}"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="{i18n>Phone1}" class="label">
+									<f:fields>
+										<Text text="{app>/supplier/ContactPhone1}"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="{i18n>Phone2}" class="label">
+									<f:fields>
+										<Text text="{app>/supplier/ContactPhone2}"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="{i18n>Email}" class="label">
+									<f:fields>
+										<Link text="{app>/supplier/ContactEmail}" href="mailto:{app>/supplier/ContactEmail}"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</l:content>
+	</l:VerticalLayout>
+</mvc:View>

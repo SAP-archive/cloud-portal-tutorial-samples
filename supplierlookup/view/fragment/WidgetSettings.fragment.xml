@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>SETTINGS_TITLE}" draggable="true" verticalScrolling="true" contentWidth="330px" contentHeight="120px">
+		<content>
+			<f:Form editable="true">
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+						emptySpanM="4" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="{i18n>ENABLE_SEARCH_SUGGESTIONS}">
+								<f:fields>
+									<Switch id="searchSuggestionsSwitch" >
+										<layoutData>
+											<FlexItemData growFactor="1"/>
+										</layoutData>
+									</Switch>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</content>
+		<beginButton>
+			<Button press="onSettingsSubmit" text="{i18n>SETTINGS_OK}" type="Emphasized"/>
+		</beginButton>
+		<endButton>
+			<Button press="onSettingCancel" text="{i18n>SETTINGS_CANCEL}"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

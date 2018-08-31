@@ -1,0 +1,9 @@
+{
+	"applications": {},
+	"bootstrapPlugins": {
+		"langselectorplugin": {
+			"component": "langselectorplugin",
+			"url": "../../../../../"
+		}
+	}
+}

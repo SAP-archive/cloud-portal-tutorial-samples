@@ -1,0 +1,44 @@
+{
+	"welcomeFile": "/index.html",
+	"authenticationMethod": "none",
+	"routes": [{
+		"path": "/resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/resources"
+		},
+		"description": "SAPUI5 Resources"
+	}, {
+		"path": "/test-resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/test-resources"
+		},
+		"description": "SAPUI5 Test Resources"
+	}, {
+		"path": "/sap/opu/odata",
+		"target": {
+			"type": "destination",
+			"name": "ES5",
+			"entryPath": "/sap/opu/odata"
+		},
+		"description": "M26 Gateway"
+	}, {
+		"path": "/sap/public/bc",
+		"target": {
+			"type": "destination",
+			"name": "ES5",
+			"entryPath": "/sap/public/bc"
+		},
+		"description": "M26 Gateway"
+	}],
+	"sendWelcomeFileRedirect": true,
+	  "cacheControl": [
+	    {
+	      "directive": "public",
+	      "maxAge": 0
+	    }
+	  ]
+}
