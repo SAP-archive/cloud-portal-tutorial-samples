@@ -1,0 +1,91 @@
+<mvc:View
+	controllerName="products.list.controller.Detail"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+
+	<semantic:DetailPage
+		id="page"
+		navButtonPress="onNavBack"
+		showNavButton="{device>/system/phone}"
+		title="{i18n>detailTitle}"
+		busy="{detailView>/busy}"
+		busyIndicatorDelay="{detailView>/delay}">
+
+		<semantic:content>
+			<ObjectHeader
+				id="objectHeader"
+				title="{Name}"
+				number="{
+					path: 'Price',
+					formatter: '.formatter.currencyValue'
+				}"
+				numberUnit="{MeasureUnit}">
+			</ObjectHeader>
+			<IconTabBar
+				id="iconTabBar"
+				class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter
+						id="iconTabBarFilter1"
+						icon="sap-icon://hint"
+						tooltip="{i18n>detailIconTabBarInfo}">
+						<VBox class="sapUiSmallMargin">
+	<l:VerticalLayout class="sapUiResponsiveContentPadding" visible="{detailView>/showODataError}">
+		<Label text="{i18n>oDataErrorText}"></Label>
+	</l:VerticalLayout>
+		<f:SimpleForm 
+			visible="{=!!${SupplierName}}"
+			id="SimpleFormDisplay354"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="Info"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="Supplier" />
+				<Text text="{SupplierName}" />
+				<Label text="Category" />
+				<Text text="{MainCategoryName}" />
+				<Label text="Sub-Category" />
+				<Text text="{SubCategoryName}" />
+				<Label text="Description" />
+				<Text text="{Description}" />
+				<Label text="Weight" />
+				<Text text="{WeightMeasure} {WeightUnit}" />
+				<Label text="Price" />
+				<Text text="{Price}" />
+				<Label text="Image"></Label>
+				<core:Icon src="{ImageUrl}"></core:Icon>
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+					</IconTabFilter>
+					<IconTabFilter
+						id="iconTabBarFilter2"
+						icon="sap-icon://attachment"
+						tooltip="{i18n>detailIconTabBarAttachments}">
+						
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		
+	</semantic:DetailPage>
+
+</mvc:View>
