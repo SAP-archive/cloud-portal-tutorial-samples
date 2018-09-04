@@ -19,7 +19,7 @@ To use the one of the included resources:
 2. Navigate into the desired resource folder (for example: apps/productlist)
 3. Create a ZIP file from all of the underlying files:
 	* Select all of the included files (Ctrl^A)
-	* Right click and select 'Add to <resource-name>.zip (for example: productlist.zip)
+	* Right click and select 'Add to `resource-name`.zip (for example: productlist.zip)
 4. Import the ZIP file into your SAP Web IDE 
 
 
