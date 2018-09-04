@@ -16,7 +16,7 @@ Please be advised that any downloads are subject to the following:
 
 To use the one of the included resources:
 1. Clone the repository or download it to your file system
-2. Navigate into the desired `resource-name` folder (for example: apps/`productlist`)
+2. Navigate **into** the desired `resource-name` folder (for example: apps/`productlist`/..)
 3. Create a ZIP file from all of the underlying files:
 	* Select all of the included files (Ctrl^A)
 	* Right click and select 'Add to `resource-name`.zip (for example: `productlist.zip`)
