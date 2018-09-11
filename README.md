@@ -1,18 +1,18 @@
 # SAP Cloud Platform Portal Tutorial Samples
 
+***
+### Description
 Sample resources for SAP Cloud Platform Portal tutorials, including custom Fiori applications, Portal widgets, and Shell Plugins.
 
-The resources can also be used as a general reference and starting point for development of custom content for portal sites.
+The resources can also be used as a general code reference and starting point for development of custom content for SAP Cloud Platform Portal sites.
 
 Please be advised that any downloads are subject to the following:
-
-* These resources are provided as a resources for various SAP Cloud Platform Portal tutorials.
-
-* These resources can also be used as a starting point for portal implementations.
 
 * These resources are provided without any warranty or support obligations.
 
 * These resources are subject to the full terms of the license agreement (see below).
+
+
 ***
 ### Requirements
 The included resources run in SAP Cloud Platform Portal sites available on any SAP Cloud Platform. To use the resources you need to have:
@@ -43,6 +43,20 @@ To use one of the included resources:
 
 5. Once the Import is complete, a new project folder is created in the SAP Web IDE. TO make it available in the Portal, deploy it to the SAP Cloud Platform.
 	![DEPLOY PROJECT](/_resources/installation_4.png).
+
+***
+### Known Issues
+There are no known issues relating to the resources included in this repository. Please refer to the **How to obtain support** for any issue you encounter.
+
+
+***
+### How to Obtain Support
+For any issue you encounter with the resources in this repository or the tutorials associated with them please create a new `Issue` in the [Issues](https://github.com/SAP/cloud-portal-tutorial-samples/issues) section of this repository.
+
+In addition, registered users can log-in and submit their question in the **SAP Community** by following [this link](https://answers.sap.com/questions/ask.html) .
+Please select the **Primary Tag** - `SAP Cloud Platform Portal`.
+
+
 ***
 ### License
 
