@@ -1,0 +1,9 @@
+{
+	"applications": {},
+	"bootstrapPlugins": {
+		"videodialogplugin": {
+			"component": "videodialogplugin",
+			"url": "../../../../../"
+		}
+	}
+}
