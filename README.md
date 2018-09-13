@@ -30,7 +30,7 @@ To use one of the included resources:
 	* Select all of the included files (Ctrl^A)
 	* Right click and select 'Add to `resource-name`.zip (for example: `productlist.zip`)
 
-![CREATE ZIP](/_resources/installation_1.png).
+	![CREATE ZIP](/_resources/installation_1.png).
 
 4. Import the ZIP file into your SAP Web IDE
 	* In the SAP Web IDE, right click on the **Workspace** folder and select Import > File or Project
