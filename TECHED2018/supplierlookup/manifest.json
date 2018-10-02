@@ -12,16 +12,6 @@
 		"sourceTemplate": {
 			"id": "servicecatalog.connectivityComponent",
 			"version": "0.0.0"
-		},
-		"dataSources": {
-			"EPM_REF_APPS_PROD_MAN_SRV": {
-				"uri": "/sap/opu/odata/sap/EPM_REF_APPS_PROD_MAN_SRV/",
-				"type": "OData",
-				"settings": {
-					"odataVersion": "2.0",
-					"localUri": "localService/metadata.xml"
-				}
-			}
 		}
 	},
 	"sap.ui": {
@@ -71,10 +61,6 @@
 				"settings": {
 					"bundleName": "teched.supplierlookup.i18n.i18n"
 				}
-			},
-			"data": {
-				"dataSource": "EPM_REF_APPS_PROD_MAN_SRV",
-				"preload": true
 			},
 			"app": {
 				"type": "sap.ui.model.json.JSONModel",

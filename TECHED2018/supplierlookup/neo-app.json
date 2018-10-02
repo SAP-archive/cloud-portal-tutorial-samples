@@ -23,16 +23,14 @@
 			"type": "destination",
 			"name": "ES5",
 			"entryPath": "/sap/opu/odata"
-		},
-		"description": "M26 Gateway"
+		}
 	}, {
 		"path": "/sap/public/bc",
 		"target": {
 			"type": "destination",
 			"name": "ES5",
 			"entryPath": "/sap/public/bc"
-		},
-		"description": "M26 Gateway"
+		}
 	}],
 	"sendWelcomeFileRedirect": true,
 	  "cacheControl": [

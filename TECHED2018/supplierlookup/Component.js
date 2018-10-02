@@ -19,10 +19,22 @@ sap.ui.define([
 		init: function() {
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
+			
+			var serviceURL = this.calculateServiceURL("/sap/opu/odata/sap/EPM_REF_APPS_PROD_MAN_SRV/");
+			var oES5Model = new sap.ui.model.odata.v2.ODataModel(serviceURL);
+			this.setModel(oES5Model, "oES5Model");
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
 			this.controller = this.getAggregation("rootControl").getController();
+		},
+		
+		calculateServiceURL: function(sPath) {
+			if (sap.ushell.Container) {
+				return sap.ushell.Container.getService("URLHelper").createComponentURI(/*this.getOwnerComponent().getId()*/this.getId(), sPath); 
+			}else{
+				return sPath;
+			}
 		},
 		
 		onConfigChange: function() {

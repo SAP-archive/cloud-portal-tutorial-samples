@@ -29,7 +29,7 @@ sap.ui.define([
 			oAppModel.setProperty("/supplierLoaded", false);
 			oAppModel.setProperty("/errorMsg", "Could not establish connection...");
 
-			var oDataModel = this.oCmp.getModel("data");
+			var oDataModel = this.oCmp.getModel("oES5Model");
 			oDataModel.read("/Suppliers", {
 				success: this.setSuppliersModel.bind(this),
 				error: function (e) {
@@ -49,6 +49,7 @@ sap.ui.define([
 			this.oView.setModel(oModel, "oSuppliers");
 			this.oView.setBusy(false);
 		},
+		
 
 		onSearch: function (event) {
 			if (this.oSF.getEnableSuggestions()) {
@@ -56,7 +57,7 @@ sap.ui.define([
 				var item = event.getParameter("suggestionItem");
 				if (item) {
 					var key = item.getKey();
-					var oDataModel = this.oCmp.getModel("data");
+					var oDataModel = this.oCmp.getModel("oES5Model");
 					var odataObjID = "/Suppliers('" + key + "')";
 					oDataModel.read(odataObjID, {
 						success: this.setSupplierDetails.bind(this),
@@ -72,7 +73,7 @@ sap.ui.define([
 					var filter = new Filter("Name", sap.ui.model.FilterOperator.Contains, query);
 					aFilters.push(filter);
 				}
-				var oDataModel = this.oCmp.getModel("data");
+				var oDataModel = this.oCmp.getModel("oES5Model");
 				oDataModel.read("/Suppliers", {
 					filters: aFilters,
 					success: function (response) {
