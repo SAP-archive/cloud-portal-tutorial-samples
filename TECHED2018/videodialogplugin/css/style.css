@@ -1,0 +1,36 @@
+.videoDialog {
+    background: transparent;
+    border: none;
+}
+
+#videoDialogFrame {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.mobile #videoDialogFrame {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#videoDialogCloseButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: lightgray;
+    background: gray;
+    font-size: 16px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.mobile #videoDialogCloseButton {
+	top: 2px;
+    right: 2px;
+}
