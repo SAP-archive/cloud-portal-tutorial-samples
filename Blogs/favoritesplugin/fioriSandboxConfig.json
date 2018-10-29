@@ -1,0 +1,9 @@
+{
+	"applications": {},
+	"bootstrapPlugins": {
+		"favoritesplugin": {
+			"component": "favoritesplugin",
+			"url": "../../../../../"
+		}
+	}
+}

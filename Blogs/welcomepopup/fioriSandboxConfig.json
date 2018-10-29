@@ -1,0 +1,9 @@
+{
+	"applications": {},
+	"bootstrapPlugins": {
+		"welcomepopup": {
+			"component": "welcomepopup",
+			"url": "../../../../../"
+		}
+	}
+}

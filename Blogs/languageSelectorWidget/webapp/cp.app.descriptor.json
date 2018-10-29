@@ -1,0 +1,8 @@
+[{
+	"id": "hcp://languageselectorwidget/manifest.json",
+	"_entityType": "PORTAL_SITE_V2_TEMPLATE_APP_CONFIG",
+	"path": "",
+	"name": "Language Selector",
+	"thumbnail": "sap-icon://hello-world",
+	"preview": ""
+}]

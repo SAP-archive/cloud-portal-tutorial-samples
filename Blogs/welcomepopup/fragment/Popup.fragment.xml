@@ -1,0 +1,17 @@
+<Dialog contentHeight="400px" contentWidth="400px" title="Welcome" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:core="sap.ui.core">
+	<buttons>
+		<Button id="cancelBtn" text="Close"></Button>
+	</buttons>
+	<!-- This is the popup content, you can replace it with your own HTML and / or SAPUI5 code -->
+	<VBox>
+		<html:div
+			style="background-color: #fff; padding: 32px 16px 0 16px; margin: 0; overflow: hidden; font-family: Arial, Calibri, Tahoma, Geneva, sans-serif; background-color: #fff; min-height: 296px;">
+			<html:h1 style="color: #007cc0; font-size: 25px; padding-bottom: 16px; border-bottom: solid #cdcdcd 4px; font-weight: normal; margin: 0;">
+				Whats New</html:h1>
+			<html:p style="color: #666; line-height: 20px; margin-bottom: 0; font-size: 16px;">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			</html:p>
+		</html:div>
+	</VBox>
+</Dialog>

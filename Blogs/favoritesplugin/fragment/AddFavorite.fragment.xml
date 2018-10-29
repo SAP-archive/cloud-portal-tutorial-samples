@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m"  xmlns:dnd="sap.ui.core.dnd"
+xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Popover  class="sapUiContentPadding" placement="Bottom" contentWidth="320px" showArrow="false" initialFocus="email">
+		<content>
+			<List 
+				select="onFavoriteItemPress"
+				mode="SingleSelectMaster"
+				showNoData="false"
+				items="{
+						path: 'favoritesModel>/'
+					}">
+				<InputListItem  label="{favoritesModel>name}" app:semanticObject="{favoritesModel>semanticObject}" app:action="{favoritesModel>action}" app:id="{favoritesModel>id}" class="favoriteListItem">
+					<core:Icon src="sap-icon://delete" press="onDeleteFavorite" class="actionIcon" color="#dedada" activeColor="#413e3e" hoverColor="#413e3e"/>
+				</InputListItem>
+				 <dragDropConfig>
+			        <dnd:DragDropInfo
+			            sourceAggregation="items"
+			            targetAggregation="items"
+			            dropPosition="Between"
+			            drop="onFavoritesReorderItems"/>
+			    </dragDropConfig>
+			</List>
+		</content>
+		<beginButton>
+			<Button press="onAddFavorite" text="Add to Favorites" icon="sap-icon://add-favorite"/>
+		</beginButton>
+		<endButton>
+			<Button press="onPopupClose" text="X"/>
+		</endButton>
+	</Popover>
+</core:FragmentDefinition>
