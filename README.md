@@ -2,7 +2,7 @@
 
 ***
 ### Description
-Sample resources for SAP Cloud Platform Portal tutorials grouped in folders according to their referencing tutorial.
+Sample resources for SAP Cloud Platform Portal blogs and tutorials grouped in folders according to their referencing tutorial.
 
 The samples include custom Fiori applications, Portal widgets, and Shell Plugins.
 
