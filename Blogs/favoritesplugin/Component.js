@@ -30,20 +30,9 @@ sap.ui.define([
 				}, true, false);
 			}.bind(this));
 
-			var oId = {
-				container: "sap.ushell.demo.PortalSiteFavorites",
-				item: "favorites"
-			};
-
 			this.core = sap.ui.getCore();
 			this.oPersonalization = sap.ushell.Container.getService("Personalization");
 			this.oConstants = this.oPersonalization.constants;
-			this.oPersonalizer = this.oPersonalization.getPersonalizer(
-				oId, {
-					keyCategory: this.oConstants.keyCategory.FIXED_KEY,
-					writeFrequency: this.oConstants.writeFrequency.LOW,
-					clientStorageAllowed: false
-				}, this);
 
 			this.loadFavoritesModel();
 		},
@@ -73,7 +62,6 @@ sap.ui.define([
 			}
 			favoritesModel.setData(portalSiteFavoritesModelObj);
 			this.setModel(favoritesModel, FAVORITES_MODEL_ID);
-			//favoritesModel.updateBindings();
 			favoritesModel.refresh();
 		},
 
@@ -105,7 +93,6 @@ sap.ui.define([
 
 				var that = this;
 				this.fragment.attachAfterClose(function () {
-					//this.destroy();
 					that.savePersonlaizedFavoritesModel();
 				});
 
@@ -120,7 +107,7 @@ sap.ui.define([
 			this.oPortalSiteFavoritesContainer.setItemValue(PERSONALIZATION_FAVORITES_KEY, favoritesModel.getData());
 
 			this.oPortalSiteFavoritesContainer.save().fail(function () {
-					alert("Saving personalization data failed.")
+					MessageToast.show("Saving personalization data failed.");
 				})
 				.done(function () {
 					this.setFavoritesModel();
@@ -149,25 +136,21 @@ sap.ui.define([
 			var selectedItem = oEvent.getSource().getParent();
 			var path2Delete = selectedItem.getBindingContextPath();
 			var favoritesModel = this.fragment.getModel(FAVORITES_MODEL_ID);
-			//favoritesModel.oData.splice(path2Delete.substring(1), 1);
 			favoritesModel.getData().splice(path2Delete.substring(1), 1);
 			favoritesModel.refresh();
 		},
-		
+
 		onFavoritesReorderItems: function (oEvent) {
-			//var sDropPosition = oEvent.getParameter("dropPosition");
 			var oDraggedControl = oEvent.getParameter("draggedControl");
 			var oDroppedControl = oEvent.getParameter("droppedControl");
 			var draggedIndex = oDraggedControl.getBindingContextPath();
 			var targetIndex = oDroppedControl.getBindingContextPath();
 			var favoritesModel = this.fragment.getModel(FAVORITES_MODEL_ID);
-			
-			//var draggedElement = favoritesModel.oData.splice(draggedIndex.substring(1), 1)[0];
+
 			var draggedElement = favoritesModel.getData().splice(draggedIndex.substring(1), 1)[0];
-			//favoritesModel.oData.splice( targetIndex.substring(1), 0, draggedElement);
-			favoritesModel.getData().splice( targetIndex.substring(1), 0, draggedElement);
+			favoritesModel.getData().splice(targetIndex.substring(1), 0, draggedElement);
 			favoritesModel.refresh();
-			
+
 		},
 
 		/**
