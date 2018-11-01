@@ -96,7 +96,8 @@
 			"mobileHeight": "600",
 			"feedType": "0",
 			"groupID": "",
-			"accountDomain": ""
+			"accountDomain": "",
+			"jamHost": ""
 		}
 	}
 }

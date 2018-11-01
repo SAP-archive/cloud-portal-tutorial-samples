@@ -1,6 +1,6 @@
 <core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout">
     <Dialog class="widgetClass" title="Jam Embedded Feed Settings" draggable="true" verticalScrolling="true"
-            contentWidth="500px" contentHeight="430px">
+            contentWidth="620px" contentHeight="300px">
         <content>
         	 <MessageStrip
 	                    text="{i18n>SETTINGS_SELECT_GROUP_ERROR}"
@@ -17,9 +17,14 @@
 				<items>
 					<IconTabFilter text="Jam Feed Settings">
 	                	<VBox>
-	                		<HBox class="fixedWidgetHeight sapUiTinyMarginBegin">
+	                		<HBox class="fixedWidgetHeight sapUiTinyMarginBegin" alignContent="SpaceAround">
+	                            <Label text="Jam Host" class="sapUiTinyMarginTopBottom" width="130px"/>
+	                            <Input id="jamHost" type="Text" width="350px" value="{settingsProperties>/jamHost}" />
+	                        </HBox>
+	                		<HBox class="fixedWidgetHeight sapUiTinyMarginBegin" alignContent="SpaceAround">
 	                            <Label text="Account Domain" class="sapUiTinyMarginTopBottom" width="130px"/>
-	                            <Input id="accountDomainInput" type="Text" width="300px" value="{settingsProperties>/accountDomain}" />
+	                            <Input id="accountDomainInput" type="Text" width="350px" value="{settingsProperties>/accountDomain}" />
+	                            <!--<core:Icon src="sap-icon://hint" press="showAccountDomainHint" class="hintIcon"></core:Icon>-->
 	                        </HBox>
 			                <HBox class="sapUiTinyMarginBegin">
 			                    <Label text="Feed Type" class="sapUiTinyMarginTopBottom" width="130px"/>

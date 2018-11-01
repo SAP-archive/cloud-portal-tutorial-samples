@@ -9,9 +9,8 @@ sap.ui.define([
 		GROUP: "1"
 	};
 
-	var JAM_HOST = "https://developer.sapjam.com";
-	var JAM_FEED_BOOTSTRAP_URL = JAM_HOST + "/assets/feed_widget_v1.js";
-	var JAM_ACCOUNT_FEED_PREFIX = JAM_HOST + "/c/";
+//	var JAM_HOST = "https://developer.sapjam.com";
+	var JAM_FEED_BOOTSTRAP_ENDPOINT = "/assets/feed_widget_v1.js";
 	var JAM_ACCOUNT_FEED_SUFIX = "/widget/v1/feed";
 	var JAM_SERVLET = "/../destinations/jam_servlet/sapjamproxy";
 	var JAM_ODATA_GROUPS =  "/../destinations/jam/api/v1/OData/Groups?$top=100";
@@ -85,10 +84,14 @@ sap.ui.define([
 			
 			var accountDomainInput = this.core.byId("accountDomainInput");
 			var accountDomain = accountDomainInput.getValue();
+			
+			var jamHostInput = this.core.byId("jamHost");
+			var jamHost = jamHostInput.getValue();
 
 			settings.feedType = selectedFeedType;
 			settings.groupID = selectedGroupID;
 			settings.desktopHeight = desktopHeight;
+			settings.jamHost = jamHost;
 			settings.accountDomain = accountDomain;
 			this.oCmp.fireEvent("save.settings", settings);
 			oEvent.getSource().getParent().close();
@@ -144,6 +147,11 @@ sap.ui.define([
 			
 			this.setWidgetHeight(settings);
 			
+			if(settings.jamHost === ""){
+				MessageToast.show("SAP Jam Host missing configuration.");
+				return;
+			}
+			
 			if(settings.accountDomain === ""){
 				MessageToast.show("SAP Jam account domain missing configuration.");
 				return;
@@ -168,11 +176,11 @@ sap.ui.define([
 					jamWidgetOptions.group_id = settings.groupID;
 				}
 
-				this.boostrapJam().then(function(res) {
+				this.boostrapJam(settings.jamHost).then(function(res) {
 					if (sapjam && sapjam.feedWidget) {
 						var containerID = this.getView().createId("jamContainer");
 						$("#" + containerID).empty();
-						var URL = JAM_ACCOUNT_FEED_PREFIX + settings.accountDomain + JAM_ACCOUNT_FEED_SUFIX;
+						var URL = settings.jamHost + "/c/"+ settings.accountDomain + JAM_ACCOUNT_FEED_SUFIX;
 						sapjam.feedWidget.init(URL, "single_use_token");
 						var w = sapjam.feedWidget.create(containerID, jamWidgetOptions);
 					} else {
@@ -209,10 +217,10 @@ sap.ui.define([
 			return oDeferred;
 		},
 		
-		boostrapJam: function(){
+		boostrapJam: function(jamHost){
 			var oDeferred = $.Deferred();
 		 	$.ajax({
-				url:  JAM_FEED_BOOTSTRAP_URL,
+				url:  jamHost + JAM_FEED_BOOTSTRAP_ENDPOINT,
 				dataType: "script",
 				async: false,
 				success: function(result, status, xhr){
