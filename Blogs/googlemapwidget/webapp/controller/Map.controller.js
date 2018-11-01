@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
+	"sap/m/MessageToast",
 	"sap/ui/model/json/JSONModel"
-], function(Controller, JSONModel) {
+], function(Controller, MessageToast, JSONModel) {
 	"use strict";
 
 	return Controller.extend("googleMapWidget.controller.Map", {
@@ -78,8 +79,6 @@ sap.ui.define([
 			}
 				
 			this.changeWidgetHeight(settings.widgetProperties);
-			
-			
 		},
 
 		openSettingsFragment: function() {
@@ -87,7 +86,6 @@ sap.ui.define([
 
 			this.fragment = sap.ui.xmlfragment("googleMapWidget.fragment.WidgetSettings", this);
 			this.fragment.setModel(this.view.getModel("i18n"), "i18n");
-
 			this.fragment.setModel(new sap.ui.model.json.JSONModel(jQuery.extend({}, settings.widgetProperties)), "widgetProperties");
 			this.fragment.setModel(new sap.ui.model.json.JSONModel(jQuery.extend({}, settings.googleMapsProperties)), "googleMapsProperties");
 			this.fragment.attachAfterClose(function() {
@@ -232,7 +230,9 @@ sap.ui.define([
 			infowindow.open(this.map, this.marker);
 		},
 
-		failGoogleMapLoad: function(oEvent) {},
+		failGoogleMapLoad: function(oEvent) {
+			MessageToast.show("Failed to load Google Maps script.");
+		},
 		
 		onAddressSearchSettings: function(oEvent){
 			var settings = this.oCmp.getMetadata().getManifest()["sap.cloud.portal"].settings;
