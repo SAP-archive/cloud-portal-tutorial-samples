@@ -1,0 +1,73 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout">
+    <Dialog class="widgetClass" title="Jam Embedded Feed Settings" draggable="true" verticalScrolling="true"
+            contentWidth="500px" contentHeight="430px">
+        <content>
+        	 <MessageStrip
+	                    text="{i18n>SETTINGS_SELECT_GROUP_ERROR}"
+	                    type="Error"
+	                    showIcon="true"
+	                    visible="false"
+	                    id="messageStripGroupError"
+	                    class="sapUiTinyMarginBottom select-group-message-jamGroupFeed">
+	            </MessageStrip>
+            <IconTabBar
+				id="idIconTabBarNoIcons"
+				expandable="false"
+				class="sapUiResponsiveContentPadding iconTabBarClass">
+				<items>
+					<IconTabFilter text="Jam Feed Settings">
+	                	<VBox>
+	                		<HBox class="fixedWidgetHeight sapUiTinyMarginBegin">
+	                            <Label text="Account Domain" class="sapUiTinyMarginTopBottom" width="130px"/>
+	                            <Input id="accountDomainInput" type="Text" width="300px" value="{settingsProperties>/accountDomain}" />
+	                        </HBox>
+			                <HBox class="sapUiTinyMarginBegin">
+			                    <Label text="Feed Type" class="sapUiTinyMarginTopBottom" width="130px"/>
+			                    <Select
+					                	width="250px"
+					                	id="feedTypeSelectList"
+										forceSelection="true"
+										change="onFeedTypeChange"
+										selectedKey="{settingsProperties>/feedType}">
+										<core:Item key="0" text="Company" />
+										<core:Item key="1" text="Group" />
+									</Select>
+			                </HBox>
+			                <HBox class="sapUiTinyMarginBegin" id="groupSelectBox">
+			                    <Label text="Group" class="sapUiTinyMarginTopBottom" width="130px"/>
+			                    <ComboBox
+					                	width="250px"
+					                	id="groupSelectList"
+					                	items="{GroupsData>/d/results}">
+			                    	<core:Item key="{GroupsData>Id}" text="{GroupsData>Name}"/>
+								</ComboBox>
+			                </HBox>
+			            </VBox>
+		            </IconTabFilter>
+					<IconTabFilter text="Visual Settings">
+		                <HBox>
+		                    <VBox class="sapUiSmallMarginBegin">
+		                        <HBox class="fixedWidgetHeight sapUiTinyMarginBegin">
+		                            <Label text="Desktop Height" class="sapUiTinyMarginTopBottom" width="100px"/>
+		                            <Input id="widgetHeightDesktop" type="Number" class="widgetHeightDesktop" width="80px" value="{settingsProperties>/desktopHeight}"/>
+		                        </HBox>
+		
+		                        <HBox class="fixedWidgetHeight sapUiTinyMarginBegin">
+		                            <Label text="Mobile Height" class="sapUiTinyMarginTopBottom" width="100px"/>
+		                            <Input id="widgetHeightMobile" type="Number" class="widgetHeightMobile" width="80px" value="{settingsProperties>/mobileHeight}" />
+		                        </HBox>
+		                    </VBox>
+		                </HBox>
+		             </IconTabFilter>
+	            </items>
+	        </IconTabBar>
+        </content>
+        <beginButton>
+            <Button id="jamContentOKBtn" class="jamContentOKBtn saveSelectGroup" press="onSettingsSubmit" text="Save"
+                    type="Emphasized"/>
+        </beginButton>
+        <endButton>
+            <Button class="jamContentCancelBtn closeSelectGroup" press="onSettingCancel" text="Cancel"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,44 @@
+{
+  "welcomeFile": "/webapp/index.html",
+    "authenticationMethod": "none",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+		"path": "/destinations/jam_servlet",
+		"target": {
+			"type": "destination",
+			"name": "jam_servlet"
+		},
+		"description": "jam_servlet"
+	},
+	 {
+      "path": "/destinations/jam",
+      "target": {
+        "type": "destination",
+        "name": "sap_jam_odata"
+      }
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    }
+  ],
+  "cacheControl": [{
+		"directive": "public",
+		"maxAge": 0
+	}],
+  "sendWelcomeFileRedirect": true
+}
