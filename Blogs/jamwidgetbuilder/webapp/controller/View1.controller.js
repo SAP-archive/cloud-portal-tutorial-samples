@@ -12,11 +12,9 @@ sap.ui.define([
 	var JAM_HOST = "https://developer.sapjam.com";
 	var JAM_FEED_BOOTSTRAP_URL = JAM_HOST + "/assets/feed_widget_v1.js";
 	var JAM_ACCOUNT_FEED_PREFIX = JAM_HOST + "/c/";
-	//var JAM_ACCOUNT_DOMAIN = "i034051trial.hanatrial.ondemand.com.cubetree.biz";
 	var JAM_ACCOUNT_FEED_SUFIX = "/widget/v1/feed";
-	var JAM_SERVLET = "/destinations/jam_servlet/sapjamproxy";
-	
-	var JAM_ODATA_GROUPS =  "/destinations/jam/api/v1/OData/Groups?$top=100";
+	var JAM_SERVLET = "/../destinations/jam_servlet/sapjamproxy";
+	var JAM_ODATA_GROUPS =  "/../destinations/jam/api/v1/OData/Groups?$top=100";
 
 	return Controller.extend("jamWidgetBuilder.controller.View1", {
 
@@ -226,21 +224,13 @@ sap.ui.define([
 			});
 			return oDeferred;
 		},
-		/*
+		
 		calculateURL: function(sPath) {
 			if (sap.ushell.Container) {
 				return sap.ushell.Container.getService("URLHelper").createComponentURI(this.getOwnerComponent().getId(), sPath); 
 			}else{
 				return sPath;
 			}
-		},*/
-		
-		calculateURL: function(URL){
-			var siteService = this.getSiteService();
-			if(siteService){
-				URL = "/sap/fiori/jamwidgetbuilder" + URL;
-			}
-			return URL;
 		},
 		
 		getSiteService: function(){
