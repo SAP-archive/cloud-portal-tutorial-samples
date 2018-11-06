@@ -1,0 +1,46 @@
+{
+  "welcomeFile": "/webapp/index.html",
+  "authenticationMethod": "none",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/destinations/northwind",
+      "target": {
+        "type": "destination",
+        "name": "northwind"
+      }
+    },
+    {
+      "path": "/northwind",
+      "target": {
+        "type": "destination",
+        "name": "northwind"
+      },
+      "description": "Northwind oData Service"
+    }
+  ],
+  "cacheControl": [
+    {
+      "directive": "public",
+      "maxAge": 0
+    }
+  ],
+  "sendWelcomeFileRedirect": true
+}

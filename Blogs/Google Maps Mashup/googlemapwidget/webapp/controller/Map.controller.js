@@ -8,6 +8,7 @@ sap.ui.define([
 	return Controller.extend("googleMapWidget.controller.Map", {
 
 		marker: null,
+		map: null,
 		
 		onInit: function() {
 			this.subscribeToSiteEvent();
@@ -20,27 +21,22 @@ sap.ui.define([
 			this.oCmp.attachEvent("open.dialog", this.openSettingsFragment.bind(this));
 		},
 		
-		onAfterRendering: function() {
-			var settings = this.oCmp.getMetadata().getManifest()["sap.cloud.portal"].settings;
-			var setApiKeyMessageStrip = this.view.byId("setApiKeyMessageStrip");
-			if(settings && settings.widgetProperties && (settings.widgetProperties.apiKey !== '')){
-				setApiKeyMessageStrip.setVisible(false);
-				this.loadGoogleMaps(settings.widgetProperties.apiKey);
-			}else{
-				setApiKeyMessageStrip.setVisible(true);
+		onAfterRendering: function(){
+			if(this.map !== null){
+				this.successGoodlMapLoad();
 			}
 		},
 		
 		loadGoogleMaps: function(apiKey){
-			//if(typeof(google) === "undefined" ){
-			jQuery.sap.includeScript(
-				"https://maps.googleapis.com/maps/api/js?key="+apiKey+"&v=3.31",
-				this.failGoogleMapLoad.bind(this),
-				this.successGoodlMapLoad.bind(this)
-			);
-			/*}else{
+			if(typeof(google) === "undefined" ){
+				jQuery.sap.includeScript(
+					"https://maps.googleapis.com/maps/api/js?key="+apiKey,
+					this.failGoogleMapLoad.bind(this),
+					this.successGoodlMapLoad.bind(this)
+				);
+			}else{
 				this.successGoodlMapLoad();
-			}*/
+			}
 		},
 		
 		onSubmitGoogleKey: function(oEvent){
@@ -48,15 +44,10 @@ sap.ui.define([
 			if(widgetPropertiesModel){
 				var googleSettingsTab = this.core.byId("googleSettingsTab");
 				var apiKey = widgetPropertiesModel.getData().apiKey;
-				
-				debugger;
 				if(apiKey !== ''){
 					googleSettingsTab.setEnabled( (apiKey !== '') );
-					//setApiKeyMessageStrip.setVisible(false);
 					this.loadGoogleMaps(apiKey);
-				}/*else{
-					setApiKeyMessageStrip.setVisible(true);
-				}*/
+				}
 			}
 		},
 
@@ -66,18 +57,10 @@ sap.ui.define([
 			var apiKey = settings.widgetProperties.apiKey;
 			if(apiKey !== ''){
 				setApiKeyMessageStrip.setVisible(false);
-				var lat = settings.googleMapsProperties.positionLat;
-				var lng = settings.googleMapsProperties.positionLng; 
-				var zoomLevel = settings.googleMapsProperties.zoomLevel;
-				var fullAddress = settings.googleMapsProperties.fullAddress; 
-				
-				if(this.map){
-					this.setLocationLatLng(lat, lng, fullAddress, zoomLevel);
-				}
+				this.loadGoogleMaps(apiKey);
 			}else{
 				setApiKeyMessageStrip.setVisible(true);
 			}
-				
 			this.changeWidgetHeight(settings.widgetProperties);
 		},
 
@@ -98,7 +81,6 @@ sap.ui.define([
 				if(widgetPropertiesModel){
 					googleSettingsTab.setEnabled( (widgetPropertiesModel.getData().apiKey !== '') );
 				}
-				
 			}.bind(this));
 
 			this.fragment.setBusyIndicatorDelay(0);
@@ -172,7 +154,7 @@ sap.ui.define([
 			if (channel === "google.maps" && event === "location-change") {
 				var settings = this.oCmp.getMetadata().getManifest()["sap.cloud.portal"].settings;
 				var zoomLevel = settings.googleMapsProperties.zoomLevel;
-				this.setLocationLatLng(data.customData.lat, data.customData.lng, data.customData.address, zoomLevel);
+				this.setLocationLatLng(data.lat, data.lng, data.address, zoomLevel);
 			}
 		},
 		
@@ -182,7 +164,7 @@ sap.ui.define([
 				var settings = this.oCmp.getMetadata().getManifest()["sap.cloud.portal"].settings;
 				var apiKey = settings.widgetProperties.apiKey;
 				var zoomLevel = settings.googleMapsProperties.zoomLevel;
-				this.searchAddress(apiKey, data.customData.address).then(function(response){
+				this.searchAddress(apiKey, data.address).then(function(response){
 					if(response.results.length > 0){
 						var searchResult = response.results[0];
 						this.setLocationLatLng(searchResult.geometry.location.lat, searchResult.geometry.location.lng, searchResult.formatted_address, zoomLevel);

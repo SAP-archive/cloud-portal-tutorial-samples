@@ -1,0 +1,15 @@
+<mvc:View controllerName="northwind.customerList.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<ScrollContainer id="customerListScrollContainer" horizontal="false" vertical="true">
+		<List items="{/Customers}">
+			<items>
+				<ObjectListItem title="{ContactName}" type="Active" press="onListItemPress" number="{ ContactTitle }">
+					<attributes>
+						<ObjectAttribute text="{ContactTitle}, {CompanyName}"/>
+						<ObjectAttribute text="{Address}, {City}, {PostalCode}, {Country}"/>
+					</attributes>
+				</ObjectListItem>
+			</items>
+		</List>
+	</ScrollContainer>
+</mvc:View>
