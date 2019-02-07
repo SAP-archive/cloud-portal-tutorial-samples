@@ -1,0 +1,9 @@
+[{
+	"id": "hcp://contentstacklinkswidget/webapp/manifest.json",
+	"_entityType": "PORTAL_SITE_V2_TEMPLATE_APP_CONFIG",
+	"path": "webapp",
+	"name": "Grouped Links",
+	"description": "A widget that is linked to content type 'Grouped Links' from Contentstack",
+	"categories": ["Contentstack"],
+	"thumbnail": "sap-icon://chain-link"
+}]

@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:custom="contentstackfeaturewidget.control">
+	<Dialog title="Widget Settings" draggable="true" verticalScrolling="true" contentWidth="800px" contentHeight="660px">
+		<content>
+			<IconTabBar expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter  text="CMS Elements" >
+						<List id="listContainer" items="{path: 'featureEntriesModel>/'}" mode="SingleSelectLeft">
+							<CustomListItem>
+								<custom:FeatureControl title="{featureEntriesModel>title}" details="{featureEntriesModel>details}" imageUrl="{featureEntriesModel>image/url}" entityID="{featureEntriesModel>uid}">
+								</custom:FeatureControl>
+							</CustomListItem>
+						</List>
+				
+						
+				</IconTabFilter>
+				<IconTabFilter text="Visual Settings">
+					<!--	<f:Form editable="true">-->
+					<!--		<f:layout>-->
+					<!--			<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"-->
+					<!--				emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>-->
+					<!--		</f:layout>-->
+					<!--		<f:formContainers>-->
+					<!--			<f:FormContainer title="{i18n>SETTINGS_HEIGHT}">-->
+					<!--				<f:formElements>-->
+					<!--					<f:FormElement label="{i18n>SETTINGS_HEIGHT_DESKTOP}">-->
+					<!--						<f:fields>-->
+					<!--							<Input id="widgetHeightDesktop" type="Number" width="100px" value="{widgetProperties>/desktopHeight}" liveChange="onWidgetHeightChange"/>-->
+					<!--						</f:fields>-->
+					<!--					</f:FormElement>-->
+					<!--					<f:FormElement label="{i18n>SETTINGS_HEIGHT_MOBILE}">-->
+					<!--						<f:fields>-->
+					<!--							<Input id="widgetHeightMobile" type="Number" width="100px" value="{widgetProperties>/mobileHeight}" liveChange="onWidgetHeightChange"/>-->
+					<!--						</f:fields>-->
+					<!--					</f:FormElement>-->
+					<!--				</f:formElements>-->
+					<!--			</f:FormContainer>-->
+					<!--		</f:formContainers>-->
+					<!--	</f:Form>-->
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<beginButton>
+			<Button press="onSettingsSubmit" text="OK" type="Emphasized"/>
+		</beginButton>
+		<endButton>
+			<Button press="onSettingCancel" text="Cancel"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

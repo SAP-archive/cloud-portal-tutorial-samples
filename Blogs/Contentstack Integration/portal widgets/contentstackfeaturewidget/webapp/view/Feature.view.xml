@@ -1,0 +1,11 @@
+<mvc:View
+	controllerName="contentstackfeaturewidget.controller.Feature"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	class="feature"
+	>
+	<!--<html:section class="torso">-->
+		<VBox width="100%" id="FeatureLayout" />
+	<!--</html:section>-->
+</mvc:View>

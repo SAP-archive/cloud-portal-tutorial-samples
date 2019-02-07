@@ -1,0 +1,11 @@
+[
+	{
+		"id": "hcp://contentstackherowidget/webapp/manifest.json",
+		"_entityType": "PORTAL_SITE_V2_TEMPLATE_APP_CONFIG",
+		"path": "webapp",
+		"name": "Hero",
+		"description": "A widget that is linked to content type 'Hero' from Built.io",
+		"categories": ["Contentstack"],
+		"thumbnail": "sap-icon://competitor"
+	}
+]

@@ -1,0 +1,13 @@
+<mvc:View
+	controllerName="contentstacklinkswidget.controller.GroupedLinks"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:lyt="sap.ui.layout"
+	xmlns="sap.m"
+	class="grouped_links"
+	>
+	<html:section class="torso">
+		<Title level="H2" text="{content>/title}" textAlign="Center" class="grouped_links__title"/>
+		<FlexBox width="100%" justifyContent="Center" wrap="Wrap" id="GroupedLinksGroupLayout" class="grouped_links__group_layout" />
+	</html:section>
+</mvc:View>

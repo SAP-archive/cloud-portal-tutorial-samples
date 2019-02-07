@@ -1,0 +1,24 @@
+<mvc:View 
+	controllerName="contentstackherowidget.controller.Hero"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" 
+	class="hero"
+	>
+	<html:section class="torso">
+		<Title level="H1" text="{content>/title}" width="100%" textAlign="Center" class="hero__title"/>
+		<Title level="H2" text="{content>/headline}" width="100%" textAlign="Center" class="hero__headline"/>
+		<html:picture class="hero__picture">
+			<Image src="{content>/videoImage}" press="onImagePress" class="hero__image"/>
+			<core:Icon src="sap-icon://media-play" class="hero__play"/>
+		</html:picture>
+		<FlexBox width="100%" direction="Column" alignItems="Center">
+			<items>
+				<Text text="{content>/introHeader}" textAlign="Center" class="hero__intro_header"/>
+				<Text text="{content>/introText}" class="hero__intro_text"/>
+				<Button type="Emphasized" text="{content>/callToActionText}" press="onCallToActionPress" class="hero__call_to_action"/>
+			</items>
+		</FlexBox>
+	</html:section>
+</mvc:View>

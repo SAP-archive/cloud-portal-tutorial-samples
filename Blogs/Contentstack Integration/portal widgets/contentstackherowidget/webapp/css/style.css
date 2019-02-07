@@ -1,0 +1,177 @@
+@font-face {
+    font-family: "BentonSans";
+    src: url("../fonts/BentonSans-400.eot");
+    src: url("../fonts/BentonSans-400.eot?") format("embedded-opentype"),
+    url("../fonts/BentonSans-400.woff") format("woff"),
+    url("../fonts/BentonSans-400.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "BentonSans";
+    src: url("../fonts/BentonSans-700.eot");
+    src: url("../fonts/BentonSans-700.eot?") format("embedded-opentype"),
+    url("../fonts/BentonSans-700.woff") format("woff"),
+    url("../fonts/BentonSans-700.ttf") format("truetype");
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "BentonSans";
+    src: url("../fonts/BentonSans-300.eot");
+    src: url("../fonts/BentonSans-300.eot?") format("embedded-opentype"),
+    url("../fonts/BentonSans-300.woff") format("woff"),
+    url("../fonts/BentonSans-300.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 300;
+}
+
+.sapUshellShellHeader {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(239, 239, 239, 1) 100%);
+    border-width: 0 0 1px;
+    border-style: solid;
+    border-color: #e7e7e7;
+}
+
+.sapUiSizeCompact .sapMBtn,
+.sapMBtn {
+    height: 4rem;
+    padding: 0.50rem 0.25rem;
+}
+.sapUiSizeCompact .sapMBtnInner,
+.sapMBtnInner {
+    height: 2.500rem;
+    min-width: 2.500rem;
+}
+.sapUiSizeCompact .sapMBtnContent,
+.sapMBtnContent {
+	line-height: 2.375rem;
+}
+.sapUiSizeCompact .sapMBtnInner.sapMBtnText,
+.sapMBtnInner.sapMBtnText {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.sapUiBody,
+.sapMBtnInner,
+.sapMText,
+.sapMTitle,
+.sapUiBlockCellContent {
+  font-family:BentonSans,-apple-system,".SFNSText-Regular","San Francisco","Roboto","Segoe UI","Helvetica Neue","Lucida Grande",sans-serif;
+}
+
+.torso {
+	max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer {
+	background: #e9e9e9;
+}
+
+.footer__nav {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 40px 0;
+}
+
+.footer__nav-item {
+	margin-right: 20px;
+}
+
+.footer__nav-link {
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.footer__nav-link:hover {
+	text-decoration: underline;
+}
+
+
+.hero {
+	background-image: linear-gradient(to bottom, #1F4C80 0, #37ABB3 50%, transparent 50%);
+}
+
+.hero .torso {
+    padding: 80px 0;
+}
+
+.hero__title {
+	color: white;
+    text-shadow: none;
+    font-size: 36px;
+    font-weight: 300;
+    margin: 10px;
+}
+
+.hero__headline {
+	color: white;
+    text-shadow: none;
+	font-size: 48px;
+	white-space : normal !important;
+	font-weight: bold;
+}
+
+.hero__picture {
+	text-align: center;
+	display: block;
+	position: relative;
+}
+
+.hero__image {
+	max-width: 60%;
+}
+
+.hero__play {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 1.75em;
+	height: 1.75em;
+	line-height: 1.75em;
+	border-radius: 50%;
+	background-color: #008fd3;
+	color: #fff;
+	font-size: 3.5em;
+	text-align: center;
+	pointer-events: none;
+	transition: background-color 0.3s;
+}
+.hero__play::before {
+	display: block;
+	transform: translateX(5%);
+	transition: transform 0.3s;
+}
+.hero__picture:hover .hero__play {
+	background-color: #418ac7;
+}
+.hero__picture:hover .hero__play::before {
+	transform: translateX(6%);
+}
+
+.hero__intro_header {
+	color: #178299;
+    font-size: 36px;
+    font-weight: 300;
+	margin: 20px;
+}
+
+.hero__intro_text {
+	color: black;
+	font-size: 16px;
+	margin: 20px;
+}
+
+.hero__call_to_action span.sapMBtnInner.sapMBtnEmphasized {
+    background-color: #008fd3;
+    text-shadow: none;
+    font-weight: 700;
+}

@@ -1,0 +1,101 @@
+{
+	"_version": "1.3.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "hcp://contentstackfeaturewidget/webapp/manifest.json",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "Built.io Feature",
+		"description": "",
+		"resources": "resources.json",
+		"ach": "ach",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "contentstackfeaturewidget.view.Feature",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "contentstackfeaturewidget.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.hana.uis.flp.routing.Router"
+			}
+		},
+		"componentName": "contentstackfeaturewidget"
+	},
+	"sap.flp": {
+		"appType": "SAP_UI5_Component",
+		"config": {
+			"editable": true,
+			"deletable": true
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"appName": "contentstackfeaturewidget",
+		"_version": "1.1.0"
+	},
+	"sap.cloud.portal": {
+		"show.portal.settings": "false",
+		"settings": {
+			"selectedEntity": "",
+			"desktopHeight": "300",
+			"mobileHeight": "300"
+		}
+	}
+}

@@ -1,0 +1,12 @@
+[
+	
+	{
+		"id": "hcp://contentstackfeaturewidget/webapp/manifest.json",
+		"_entityType": "PORTAL_SITE_V2_TEMPLATE_APP_CONFIG",
+		"path": "webapp",
+		"name": "Feature Select",
+		"categories": ["Contentstack"],
+		"thumbnail": "sap-icon://product"
+	}
+	
+]
