@@ -17,7 +17,7 @@ The portal site in this example consists of one page that  contains three blocks
 * A **feature** block with two sub-blocks (“Build a Modern, …” and “Be a User …”), and
 * A block of **grouped links** (“Resources”).
 
-![End result](/resources/document/image001.png)
+![End result](resources/document/image001.png)
 
 You will achieve this result in eight steps that are laid out and described in the following chapters:
 * Step 0: Prerequisites
