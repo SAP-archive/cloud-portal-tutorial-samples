@@ -29,11 +29,11 @@ To use the resources you need to have:
 ### Download and Installation
 
 Clone the repository or download it to your file system.
-- To work with the [Blogs](../Blogs) resources follow the [README](../Blogs/README.md)
+- To work with the [Blogs](Blogs) resources follow the [README](Blogs/README.md)
 
-- To work with the [Events and Workshops](../Events and Workshops) resources follow the [README](../Events and Workshops/README.md)
+- To work with the [Events and Workshops](Events%20and%20Workshops) resources follow the [README](Events%20and%20Workshops/README.md)
 
-- To work with the [Contentstack Integration](../Contentstack Integration) resources follow the [README](../Contentstack Integration/README.md)
+- To work with the [Contentstack Integration](Contentstack%20Integration) resources follow the [README](Contentstack%20Integration/README.md)
 
 ***
 ### Known Issues
