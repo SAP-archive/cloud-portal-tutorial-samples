@@ -2,7 +2,7 @@
 
 ***
 ### Description
-Sample resources for SAP Cloud Platform Portal blogs and tutorials grouped in folders according to their referencing tutorial.
+Sample resources for SAP Cloud Platform Portal integrations, blogs and tutorials grouped in folders according to their referencing tutorial.
 
 The samples include custom Fiori applications, Portal widgets, and Shell Plugins.
 
@@ -27,26 +27,13 @@ To use the resources you need to have:
 
 ***
 ### Download and Installation
-To use one of the included resources:
-1. Clone the repository or download it to your file system.
-2. Navigate **into** the desired `resource-name` folder (for example: apps/`productlist`/..)
-3. Create a ZIP file from all of the underlying files:
-	* Select all of the included files (Ctrl^A)
-	* Right click and select 'Add to `resource-name`.zip (for example: `productlist.zip`)
 
-	![CREATE ZIP](/_resources/installation_1.png).
+Clone the repository or download it to your file system.
+- To work with the [Blogs](../Blogs) resources follow the [README](../Blogs/README.md)
 
-4. Import the ZIP file into your SAP Web IDE
-	* In the SAP Web IDE, right click on the **Workspace** folder and select Import > File or Project
+- To work with the [Events and Workshops](../Events and Workshops) resources follow the [README](../Events and Workshops/README.md)
 
-	![IMPORT PROJECT](/_resources/installation_2.png).
-
-	*  In the Import dialog browse and select the resource ZIP file you created.
-
-	![SELECT ZIP](/_resources/installation_3.png).
-
-5. Once the Import is complete, a new project folder is created in the SAP Web IDE. TO make it available in the Portal, deploy it to the SAP Cloud Platform.
-	![DEPLOY PROJECT](/_resources/installation_4.png).
+- To work with the [Contentstack Integration](../Contentstack Integration) resources follow the [README](../Contentstack Integration/README.md)
 
 ***
 ### Known Issues

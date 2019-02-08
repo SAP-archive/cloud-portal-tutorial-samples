@@ -37,6 +37,9 @@ Otherwise, you can register for a free SAP Cloud Platform account and access you
 ###### 2. Register and login to a Contentstack Account
 If you already have a Contentstack account, go ahead and use that account. Otherwise register here for a [free trial account](https://www.contentstack.com/company/contact-us?subject=free%20trial)
 
+###### 3. Setup Tools for Java Development on the SAP Cloud Platform Neo Environment
+1. Navigate to [SAP Development Tools > Cloud](https://tools.hana.ondemand.com/#cloud)
+2. Follow the instructions under `Getting Started with SAP Cloud Platform Neo Environment`. When downloading the `SAP Cloud Platform Neo Environment SDK` select **Java EE 6 Web Profile**
 
 #### Step 1: Create a New Stack on Contentstack
 In order to create a portal site that uses content created and managed with Contentstack, we need to create a new stack in Contentstack. A stack is a pool of data or a container that holds all the content and assets related to a site.
@@ -203,3 +206,19 @@ References | Sika AG| SAP IT
 
 So far so good. As far as the content creation is concerned we are done.
 The next steps from this point will all be performed in your SAP Cloud Platform account
+
+#### Step 5: Deploy Contentstack Proxy Application
+###### Import _contentstackproxy_ Maven project
+- Open your Eclipse IDE
+- Click `File > Import`
+- Select `Maven > Existing Maven Projects`
+- Browse to the project root folder under _/Contentstack Integration/contentstackproxy_
+- Notice that the projects `pom.xml` is selected and click `Finish`
+![Icon Type Builder](resources/document/image016.png)
+
+###### Build the Project
+- Select the `contentstackproxy` root folder
+- Right click and select `Run As > Maven Install`
+- Notice that the build log is running in the `Console` view
+- Once you recieve a **BUILD SUCCESS** message make sure the **contentstackproxy.war** has been created under the **target** folder
+![Icon Type Builder](resources/document/image017.png)
