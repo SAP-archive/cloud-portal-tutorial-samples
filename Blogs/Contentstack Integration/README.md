@@ -3,13 +3,6 @@
 ## Leverage Contentstack to Create and Manage Web Content in your Portal
 
 
-Sven Kannengiesser | Version 1.0 | October 2017
-
-Greg Luciano | Version 1.1 | June 2018
-
-Ido Shemesh | Version 1.2 | February 2019
-
-
 #### Introduction
 In this guide we will build an SAP Cloud Platform Portal site that uses content snippets created and managed on Contentstack. You will learn how to first set up a stack and content types and create entries in Contentstack, then to set up a portal site which uses custom developed widgets that link to certain content types and pull the content from the Contentstack server into the portal page at runtime.
 The portal site in this example consists of one page that  contains three blocks of content:
@@ -50,10 +43,10 @@ In order to create a portal site that uses content created and managed with Cont
 
 - In your browser, go to the website https://app.contentstack.com/#!/login and log in with your credentials.
 - Press **New Stack**, give your new stack a meaningful name and (optionally) a description.
-![New Stack](/resources/document/image002.png)
+![New Stack](resources/document/image002.png)
 - You _may_ also assign a master language for the stack. To learn more about languages in Contentstack read - [Localization](https://www.contentstack.com/docs/guide/localization#how-languages-work).
 - Press **Create**. The new stack will open and ask you to create content types.
-![New Stack](/resources/document/image003.png)
+![New Stack](resources/document/image003.png)
 
 #### Step 2: Set Up Content Types
 Now lets create a number of content types for our site. A content type lets you define the structure or blueprint of a page or a section in a page. To learn more about content types, please [read here](https://www.contentstack.com/docs/guide/content-types).
@@ -68,7 +61,7 @@ Let’s start setting up the first content type:
 - Make sure that `Single` is selected – our page contains only one hero block, and there is no need to create additional ones (see [Single vs Multiple](https://www.contentstack.com/docs/guide/content-types#single-vs-multiple)).
 - Optionally add a description.
 - Press `Create and Add fields`.
-![New Stack](/resources/document/image004.png)
+![New Stack](resources/document/image004.png)
 
 Now we add fields of different type to the newly created content type. One field, `Title`, is mandatory, and already placed on top of the new content type. One by one we add the following fields via drag and drop from the right panel:
 - A **SINGLE LINE TEXTBOX** with display name `Headline` and unique ID `headline`
@@ -78,11 +71,11 @@ Now we add fields of different type to the newly created content type. One field
 - A **MULTI LINE TEXTBOX** with display name `Intro Text` and unique ID `intro_text`
 - A **LINK** with display name `Call-to-Action` and unique ID `call_to_action`.
 
-![Her Type Builder](/resources/document/image005.png)
+![Her Type Builder](resources/document/image005.png)
 
 A field’s display name, unique ID, placeholder value, instruction value, help text, default value, etc. can be changed/edited by clicking on the respective field which opens a flyout with the available attributes.
 
-![Hero Type Builder](/resources/document/image006.png)
+![Hero Type Builder](resources/document/image006.png)
 - After having added all necessary fields, press `Save and Close`.
 - Result: A new content type **Hero** is shown in the list.
 
@@ -95,7 +88,7 @@ Repeat the steps for the next content type **Feature** using the following infor
   - A **FILE** with display name `Image` and unique ID `image`
   - A **MULTI LINE TEXTBOX** with display name `Details` and unique ID `details`
   - A **NUMBER** with display name `Sort Priority`, unique ID `sort_priority`, a range from 0 to 100, a default value of 50, and marked as “Mandatory”. This field is later used by the widget to determine in which order multiple features appear on the page.
-![Feature Type Builder](/resources/document/image007.png)
+![Feature Type Builder](resources/document/image007.png)
 
 Finally we need two content types at once for the last component **Grouped Links**. One that serves as the container of the three link groups **Tutorial**, **References** and **Product Overview** and one for the icon-prefixed links itself.
 This component could actually be realized with one single content type using a(n outer) group of (link) groups, but here we assume for demo purposes that the links are reusable (e.g. on other pages) and thus we want to reference single link entries in the outer group.
@@ -110,7 +103,7 @@ So, firstly create a content type for the icon links:
   - A **SINGLE LINE TEXTBOX** with display name `Icon` and unique ID `icon`, marked as `Mandatory`,
   - A **SINGLE LINE TEXTBOX** with display name `URL` and unique ID `url`, marked as `Mandatory`,
   - A **SINGLE LINE TEXTBOX** with display name `Target`, unique ID `target`, validation regex `^(_self|_blank)$`, validation error message `Can only be "_self" or "_blank".`, default value `_self`, and marked as `Mandatory`.
-![Icon Type Builder](/resources/document/image008.png)
+![Icon Type Builder](resources/document/image008.png)
 
 Lastly create a content type for the component containing the groups of links:
 - As meta data:
@@ -121,7 +114,7 @@ Lastly create a content type for the component containing the groups of links:
   - A **GROUP**  with display name `Link Group`, unique ID `link_group`, and marked as `Multiple`. This field in turn needs two nested fields:
   - A **SINGLE LINE TEXTBOX** with display name `Title`, unique ID `title`, marked as `Mandatory`, and with `Mark as Group title` checked.
   - A **REFERENCE** with display name `Links`, unique ID `links`, marked as `Multiple`, and with selected content type `Icon Link`.
-![Icon Type Builder](/resources/document/image009.png)
+![Icon Type Builder](resources/document/image009.png)
 
 Now you are almost ready to create the actual content. But before that we need to define the environment that content should be published to.
 
@@ -133,7 +126,7 @@ A publishing environment corresponds to one or more deployment servers or a cont
 - Enter the name **production”**
 - Leave `Base URL` blank and keep `Deploy Content to Server(s)` unchecked
 - Press `Add`.
-![Icon Type Builder](/resources/document/image010.png)
+![Icon Type Builder](resources/document/image010.png)
 
 #### Step 4: Create Entries
 With the three content types in place and an environment defined, you can now fill the stack with life, i.e. you create one or multiple entries for each content type. An entry is the actual piece of content that you wish to publish. If you think in an ‘object-oriented’ way an entry could also be described as the instance (=object) of a constant type (=class).
@@ -150,11 +143,11 @@ Lets start with creating an entry for **Hero**. In the case of “Hero” you wi
   - `Video URL / Title` = Watch this video to learn more about the product.
   - `Video URL / URL` = https://www.youtube.com/watch?v=v6tOQlBTAY4
   - `Video Image` = Select the image provided in this repository: "/Contentstack Integration/resources/images/Fiori_iOS.png"
-![Icon Type Builder](/resources/document/image011.png)
+![Icon Type Builder](resources/document/image011.png)
 
 - Click on `Publish` to make the instance available
 - Select the `production` environment, check publish `Now` and click `Publish`
-![Icon Type Builder](/resources/document/image012.png)
+![Icon Type Builder](resources/document/image012.png)
 
 In the other three cases (`Feature`, `Icon Link`, and `Grouped Links`, all marked as `Multiple`) you will first be taken to a list where you – one by one – create and fill new entries.
 
@@ -174,7 +167,7 @@ Be a User Experience Hero | /resources/images/ux_hero.png | With simplified and 
 - From the `Feature` entries page, select all entries and click `Publish`
 - Select the `production` environment and click `Publish With References`
 
-![Icon Type Builder](/resources/document/image013.png)
+![Icon Type Builder](resources/document/image013.png)
 
 ###### Create _Icon Link_ entries
 - Click on `Icon Link`
@@ -192,7 +185,7 @@ UX Explorer: SAP Fiori Cloud | document-text | https://eaexplorer.hana.ondemand.
 
 - From the `Icon Link` entries page, select all entries and click `Publish`
 - Select the `production` environment and click `Publish`
-![Icon Type Builder](/resources/document/image014.png)
+![Icon Type Builder](resources/document/image014.png)
 
 ###### Create _Grouped Links_ entries
 - Click on `Grouped Links`
@@ -204,7 +197,7 @@ Title | Link 1  | Link 2
 Product Overview | UX Explorer: SAP Fiori Cloud | Renew Your SAP User Experience with SAP Fiori Cloud
 Tutorials | Tutorial Videos: SAP Fiori Cloud | Demo: SAP Fiori Cloud
 References | Sika AG| SAP IT
-![Icon Type Builder](/resources/document/image015.png)
+![Icon Type Builder](resources/document/image015.png)
 - From the `Grouped Links` entries page, select all entries and click `Publish`
 - Select the `production` environment and click `Publish With References`
 
