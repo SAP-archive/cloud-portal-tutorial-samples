@@ -146,6 +146,12 @@ Lets start with creating an entry for **Hero**. In the case of “Hero” you wi
   - `Video URL / Title` = Watch this video to learn more about the product.
   - `Video URL / URL` = https://www.youtube.com/watch?v=v6tOQlBTAY4
   - `Video Image` = Select the image provided in this repository: "/Contentstack Integration/resources/images/Fiori_iOS.png"
+  - `Intro Header` = Implementing SAP Fiori is Now Simpler Than Ever
+  - `Intro Text` = SAP Fiori Cloud provides a modern, simple and responsive user experience for your existing SAP Business Suite systems via simple and cost effective cloud services. It provides a complete implementation journey—experience the new UX, extend and connect to your on-premises systems, and then deploy the solution for productive usage in a secured environment.
+  - `Call-to-Action`  
+    - `Title` = Check out the demo
+    - `URL` = http://www.sap.com/fiori-demo
+
 ![Icon Type Builder](resources/document/image011.png)
 
 - Click on `Publish` to make the instance available
@@ -199,15 +205,19 @@ Title | Link 1  | Link 2
 ------------ | ------------- | -------------
 Product Overview | UX Explorer: SAP Fiori Cloud | Renew Your SAP User Experience with SAP Fiori Cloud
 Tutorials | Tutorial Videos: SAP Fiori Cloud | Demo: SAP Fiori Cloud
-References | Sika AG| SAP IT
-![Icon Type Builder](resources/document/image015.png)
+References | Sika AG | SAP IT
+
 - From the `Grouped Links` entries page, select all entries and click `Publish`
 - Select the `production` environment and click `Publish With References`
+
+![Icon Type Builder](resources/document/image015.png)
 
 So far so good. As far as the content creation is concerned we are done.
 The next steps from this point will all be performed in your SAP Cloud Platform account
 
 #### Step 5: Deploy Contentstack Proxy Application
+To connect to your Contentstack environment we use a Java servlet to perform a server to server request. The servlet is available in a Java Maven project under the _contentstackproxy_ folder.
+
 ###### Import _contentstackproxy_ Maven project
 - Open your Eclipse IDE
 - Click `File > Import`
@@ -220,5 +230,90 @@ The next steps from this point will all be performed in your SAP Cloud Platform 
 - Select the `contentstackproxy` root folder
 - Right click and select `Run As > Maven Install`
 - Notice that the build log is running in the `Console` view
-- Once you recieve a **BUILD SUCCESS** message make sure the **contentstackproxy.war** has been created under the **target** folder
+- Once you receive a **BUILD SUCCESS** message make sure the **contentstackproxy.war** has been created under the **target** folder
 ![Icon Type Builder](resources/document/image017.png)
+
+###### Deploy the Project
+- Go to you SAP Cloud Platform Cockpit account and navigate to your subaccount.
+- Navigate to the page `Applications > Java Applications`.
+- Press `Deploy Application`.
+- Browse to the file **contentstackproxy.war** and open/upload it.
+
+![Icon Type Builder](resources/document/image018.png)
+
+- In the `Additional Parameters` section, select **Java EE 6 Web Profile** as the Runtime Name, and `JRE 7` for the **JVM Version**.
+- Press **Deploy**
+
+![Icon Type Builder](resources/document/image019.png)
+- After successful deployment, press `Start`.
+- When the application has successfully started, click on the name/link of the newly deployed and started application in order to show its overview page.
+- Copy the first of the URLs shown in the `Application URLs` box and save it (in a notepad) for the next step.
+![Icon Type Builder](resources/document/image020.png)
+
+#### Step 6: Create Destinations for Proxy and Backend
+SAP Cloud Platform uses destination files as property files for configuring connectivity and authentication method for backend connectivity. The applications deployed on your Cloud Platform account use destination files to perform requests to the designated backend systems. In this step you’ll create two destinations:
+1. **contentstack_proxy**  for the frontend (SAPUI5 apps) to connect to the proxy application
+
+
+- Navigate to `Connectivity > Destinations`.
+- Press `New Destination`.
+- In the **Destination Configuration** fill in the following data:
+  - Name: **contentstack_proxy**
+  - Type: [HTTP]
+  - URL: _the application URL you copied in the previous step_
+  - Proxy Type: [Internet]
+  - Authentication: [NoAuthentication]
+  - Keep “Use default JDK truststore” checked.
+- Press `Save`.
+![First destination](resources/document/image021.png)
+
+
+2. **contentstack_backend** for the proxy application to connect to your Contentstack backend environment.
+
+
+- Go to the Contentstack admin pages (https://app.contentstack.com/).
+- Navigate to `Settings > Stack`.
+- Copy both the **API key** and the **Access Token** and save them (in a notepad).
+![Stack Settings](resources/document/image022.png)
+- Go back to your subaccount’s overview page in the SAP Cloud Platform Cockpit.
+- Navigate to `Connectivity > Destinations`.
+- Press `New Destination`.
+- In the “Destination Configuration” fill in the following data:
+  - Name: `contentstack_backend`
+  - Type: [HTTP]
+  - URL: “https://cdn.contentstack.io/v3/"
+  - Proxy Type: [Internet]
+  - Authentication: [NoAuthentication]
+- Add five properties:
+  - “API_KEY”: _the API key copied from the stack settings in Contentstack_
+  - “AUTHTOKEN”: _the access token copied from the stack settings in Contentstack_
+  - “environment": **production**
+  - “WebIDEEnabled”: **true**
+  - “WebIDEUsage”: “API”
+Keep “Use default JDK truststore” checked.
+![Second ](resources/document/image023.png)
+
+
+- Press `Save`.
+
+#### Step 7: Develop Widgets in Web IDE
+In order to use content managed and provided by Contentstack inside an SAP Cloud Platform Portal site, you need to develop a portal widget to display the content. Each widget is created as a SAPUI5 application and is composed of at least a controller and a view. Depending on the needs it might also have custom controls to render the various content types.
+
+In this How-to Guide we provide three sample widgets which you can import into SAP Web IDE, take as a starting point and adapt to your own needs. They are located under the folder
+[Contentstack Integration/portal widgets]():  contentstackfeaturewidget, contentstackherowidget, contentstacklinkswidget.
+
+- To import and deploy each of the 3 widgets, follow the general instructions provided here: [README](../../Blogs/README.md)
+- After completing this, your Web IDE workspace should look like this:
+![Web IDE after import ](resources/document/image024.png)
+
+To verify that everything was configured correctly and working run and preview one of the widgets in the Web Web IDE
+- Select the **contentstackherowidget**
+- Right click and select `Run > Run Configurations`
+- Click on the **+** to create a new `SAP Fiori Launchpad Sandbox` run Configuration
+- Click `Save and Run`
+![Web IDE after import ](resources/document/image024_2.png)
+
+- The widget is opened in the preview environment displaying the HERO content type data rendered according to the control defined in the widget
+![Web IDE after import ](resources/document/image025.png)
+
+#### Step 8: Set up a Portal Site
