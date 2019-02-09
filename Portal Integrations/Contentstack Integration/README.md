@@ -199,7 +199,8 @@ UX Explorer: SAP Fiori Cloud | document-text | https://eaexplorer.hana.ondemand.
 ###### Create _Grouped Links_ entries
 - Click on `Grouped Links`
 - Click on `+ New Entry` to create a new entry
-- Create 4 entries with the following values
+- Enter `Title` = Resources
+- Under `Link Group` create 3 entries with the following values
 
 Title | Link 1  | Link 2
 ------------ | ------------- | -------------
@@ -207,10 +208,10 @@ Product Overview | UX Explorer: SAP Fiori Cloud | Renew Your SAP User Experience
 Tutorials | Tutorial Videos: SAP Fiori Cloud | Demo: SAP Fiori Cloud
 References | Sika AG | SAP IT
 
-- From the `Grouped Links` entries page, select all entries and click `Publish`
-- Select the `production` environment and click `Publish With References`
+![Icon Type Builder](resources/document/image026.png)
 
-![Icon Type Builder](resources/document/image015.png)
+- From the bottom of the page select click `Publish`
+- Select the `production` environment and click `Publish`
 
 So far so good. As far as the content creation is concerned we are done.
 The next steps from this point will all be performed in your SAP Cloud Platform account
@@ -300,7 +301,7 @@ Keep “Use default JDK truststore” checked.
 In order to use content managed and provided by Contentstack inside an SAP Cloud Platform Portal site, you need to develop a portal widget to display the content. Each widget is created as a SAPUI5 application and is composed of at least a controller and a view. Depending on the needs it might also have custom controls to render the various content types.
 
 In this How-to Guide we provide three sample widgets which you can import into SAP Web IDE, take as a starting point and adapt to your own needs. They are located under the folder
-[Contentstack Integration/portal widgets]():  contentstackfeaturewidget, contentstackherowidget, contentstacklinkswidget.
+[Contentstack Integration/portal widgets]():  _contentstackfeaturewidget_, _contentstackherowidget_, _contentstacklinkswidget_.
 
 - To import and deploy each of the 3 widgets, follow the general instructions provided here: [README](../../Blogs/README.md)
 - After completing this, your Web IDE workspace should look like this:
@@ -317,3 +318,20 @@ To verify that everything was configured correctly and working run and preview o
 ![Web IDE after import ](resources/document/image025.png)
 
 #### Step 8: Set up a Portal Site
+The last step is about the composition of the Contentstack widgets (together with other kinds of widgets or apps) into pages of a portal site. This is actually straight forward, at least from the Cloud Portal perspective
+- Open your Portal Admin Space and navigate to the Site Directory
+- Click on the **+** icon to create a new sites
+- Select the `Starter` template, give the site a name and click `Create`
+![Web IDE after import ](resources/document/image027.png)
+
+To add the new Contentstack widgets to the portal site page:
+- Click on the Sections on your page
+- Click on the **+** to open the **Content Catalog**
+- Scroll down the catalog to find the `Contentstack` widget category
+![Web IDE after import ](resources/document/image028.png)
+-Select the **Hero** widget to add it to the page section.
+- Repeat these steps and add the **Features Select** and **Grouped Links** Widgets
+- Publish the site and open the runtime link. Your site should now look like this:
+![End result](resources/document/image001.png)
+
+Just keep in mind that you can mix and match a page’s content with any kind of widget. A dynamic UI5 application can go hand in hand with a Contentstack-driven “static” content component, on the same page! If you want pixel-perfect design you can develop a custom site template with custom layouts. Give free rein to your artistic vein!

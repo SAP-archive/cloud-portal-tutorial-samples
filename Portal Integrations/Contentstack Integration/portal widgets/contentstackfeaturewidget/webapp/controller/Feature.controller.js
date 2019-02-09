@@ -13,6 +13,13 @@ sap.ui.define([
 			this.oCmp.attachEvent("open.dialog", this.openSettingsFragment.bind(this));
 		},
 		
+		onAfterRendering: function(){
+			var siteService = this.getSiteService();
+			if(siteService === null){//not running in portal
+				this.loadEntities("");
+			}
+		},
+		
 		performAJAXRequest: function(query){
 			var oDeferred = $.Deferred();
 			$.ajax({
@@ -33,26 +40,28 @@ sap.ui.define([
 		onConfigChange: function() {
 			var settings = this.getOwnerComponent().getMetadata().getManifest()["sap.cloud.portal"].settings;
 			var selectedEntity = settings.selectedEntity;
-			
-			//this.setWidgetHeight(settings);
-			
+			this.loadEntities(selectedEntity);
+		},
+		
+		loadEntities: function(selectedEntity){
+			var proxyPath = jQuery.sap.getModulePath("contentstackfeaturewidget") + "/.." + "/contentstack_proxy/content_types/feature/entries";
 			if(selectedEntity !== ""){
-				var proxyPath = jQuery.sap.getModulePath("contentstackfeaturewidget") + "/.." + "/contentstack_proxy/content_types/feature/entries/" + selectedEntity;
-				this.performAJAXRequest(proxyPath).then(function(data){
-					var featureControl,  cLayout = this.view.byId('FeatureLayout');
-					cLayout.removeAllItems();
-					if(data.hasOwnProperty("entry")){
-						featureControl = this.renderEntry(data.entry);
-						cLayout.addItem(featureControl);
-					}else{
-						for (var i = 0; i < data.entries.length; i++) {
-							var entry = data.entries[i];
-							featureControl = this.renderEntry(entry);
-							cLayout.addItem(featureControl);
-						}
-					}
-				}.bind(this));
+				proxyPath += "/" + selectedEntity;
 			}
+			this.performAJAXRequest(proxyPath).then(function(data){
+				var featureControl,  cLayout = this.view.byId('FeatureLayout');
+				cLayout.removeAllItems();
+				if(data.hasOwnProperty("entry")){
+					featureControl = this.renderEntry(data.entry);
+					cLayout.addItem(featureControl);
+				}else{
+					for (var i = 0; i < data.entries.length; i++) {
+						var entry = data.entries[i];
+						featureControl = this.renderEntry(entry);
+						cLayout.addItem(featureControl);
+					}
+				}
+			}.bind(this));
 		},
 		
 		setWidgetHeight: function(settings){
@@ -131,6 +140,14 @@ sap.ui.define([
 		
 		onSettingCancel: function(oEvent) {
 			oEvent.getSource().getParent().close();
+		},
+		
+		getSiteService: function(){
+			var siteService = null;
+			try{
+				siteService = sap.ushell.Container.getService("SiteService");
+			}catch(error){}
+			return siteService;
 		}
 		
 		
