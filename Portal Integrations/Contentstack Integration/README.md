@@ -22,6 +22,7 @@ You will achieve this result in eight steps that are laid out and described in t
 * Step 6: Create Destinations for Proxy and Backend
 * Step 7: Develop Widgets in Web IDE
 * Step 8: Set up a Portal Site
+* Step 9: Configure Widget Settings
 
 Let’s start!
 
@@ -40,6 +41,8 @@ If you already have a Contentstack account, go ahead and use that account. Other
 ###### 3. Setup Tools for Java Development on the SAP Cloud Platform Neo Environment
 1. Navigate to [SAP Development Tools > Cloud](https://tools.hana.ondemand.com/#cloud)
 2. Follow the instructions under `Getting Started with SAP Cloud Platform Neo Environment`. When downloading the `SAP Cloud Platform Neo Environment SDK` select **Java EE 6 Web Profile**
+
+
 
 #### Step 1: Create a New Stack on Contentstack
 In order to create a portal site that uses content created and managed with Contentstack, we need to create a new stack in Contentstack. A stack is a pool of data or a container that holds all the content and assets related to a site.
@@ -335,3 +338,32 @@ To add the new Contentstack widgets to the portal site page:
 ![End result](resources/document/image001.png)
 
 Just keep in mind that you can mix and match a page’s content with any kind of widget. A dynamic UI5 application can go hand in hand with a Contentstack-driven “static” content component, on the same page! If you want pixel-perfect design you can develop a custom site template with custom layouts. Give free rein to your artistic vein!
+
+
+
+####  Step 9: Configure Widget Settings
+The Portal widgets we added to the site are used to render the content retrieved from Contentstack according to the desired UX. The widgets are in-fact SAPUI5 applications and can be used to deliver additional capabilities. This way customers have the flexibility to design the site according to their exact requirements.
+The Portal provides and API for developers to create widget settings, so developers can create widget related configuration screens for portal admins to configure.
+
+We implemented widget settings in the `contentstackfeaturewidget`. The settings provide a configuration screen for Portal administrators, allowing them to select the desired `feature` entity they would like to display in the widget. When unselected, the widget displays all the available.
+
+- Go back to the site designer and click on the `Features` widget to reveal it's action menu.
+![Settings icon](resources/document/image029.png)
+
+- Click on the **Settings** icon to open the `Features` widget settings
+- The settings screen displays the list of `Feature` entities and allows the Portal admin to select one of the entities to display in the widget.
+- Select the first one and click **OK**.
+![Widget Settings](resources/document/image030.png)
+- Notice that the widget only displays the selected feature.
+- Add another **Feature Select** widget to the page (like you did in the Step 8). Initially the new widget is placed at the bottom of the page displaying the full list of features.
+- Open the new widget settings,  select the last feature and click **OK**.
+- Click on the page to open the **Section Settings** and rearrange the widget position
+![Section settings icon](resources/document/image031.png)
+- In the Section Settings dialog
+- Select the **Custom** layout
+- Drag and drop the **Feature** widgets to be positioned next to each other.
+- Change the widgets span as shown in the screen shot below. This way the **Hero** and **Grouped Links** widget each span on a full row and the **Feature** widgets span on the same row.
+- Click **Save**
+![Section settings](resources/document/image032.png)
+- Publish the site and open
+![New End result](resources/document/image033.png)

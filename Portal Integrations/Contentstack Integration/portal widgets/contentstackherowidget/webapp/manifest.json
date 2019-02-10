@@ -8,7 +8,7 @@
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
-		"title": "Built.io Hero Widget",
+		"title": "Hero Widget",
 		"description": "",
 		"resources": "resources.json",
 		"ach": "ach",
