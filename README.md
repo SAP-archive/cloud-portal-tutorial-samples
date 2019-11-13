@@ -4,7 +4,7 @@
 ### Description
 Sample resources for SAP Cloud Platform Portal integrations, blogs and tutorials grouped in folders according to their referencing tutorial.
 
-The samples include custom Fiori applications, Portal widgets, and Shell Plugins.
+The samples include custom SAP Fiori applications, Portal widgets, and Shell Plugins.
 
 The resources can also be used as a general code reference and starting point for development of custom content for SAP Cloud Platform Portal sites.
 
@@ -51,5 +51,5 @@ Please select the **Primary Tag** - `SAP Cloud Platform Portal`.
 ***
 ### License
 
-Copyright (c) 2017 SAP SE or an SAP affiliate company. All rights reserved.
-This file is licensed under the SAP Sample Code License Agreement except as noted otherwise in the [LICENSE](LICENSE.md "LICENSE file").
+Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
+This file is licensed under the SAP Sample Code License Agreement except as noted otherwise in the [LICENSE](LICENSE "License file").
