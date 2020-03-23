@@ -2,9 +2,9 @@
 
 ***
 ### Description
-Sample resources for SAP Cloud Platform Portal integrations, blogs and tutorials grouped in folders according to their referencing tutorial.
+Sample resources for SAP Cloud Platform Portal integrations, blogs, and tutorials grouped in folders according to their referencing tutorial.
 
-The samples include custom SAP Fiori applications, Portal widgets, and Shell Plugins.
+The samples include custom SAP Fiori applications, Portal widgets, and shell plug-ins.
 
 The resources can also be used as a general code reference and starting point for development of custom content for SAP Cloud Platform Portal sites.
 
@@ -37,18 +37,14 @@ Clone the repository or download it to your file system.
 
 ***
 ### Known Issues
-There are no known issues relating to the resources included in this repository. Please refer to the **How to obtain support** for any issue you encounter.
-
+There are no known issues relating to the resources included in this repository. Please refer to **How to obtain support** for any issue you encounter.
 
 ***
 ### How to Obtain Support
 For any issue you encounter with the resources in this repository or the tutorials associated with them please create a new `Issue` in the [Issues](https://github.com/SAP/cloud-portal-tutorial-samples/issues) section of this repository.
 
-In addition, registered users can log-in and submit their question in the **SAP Community** by following [this link](https://answers.sap.com/questions/ask.html) .
-Please select the **Primary Tag** - `SAP Cloud Platform Portal`.
-
+In addition, registered users can log in and [submit their question](https://answers.sap.com/questions/ask.html) in the **SAP Community**. Please select the **Primary Tag** "SAP Cloud Platform Portal."
 
 ***
 ### License
-
 Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, v2.0 except as noted otherwise in the [LICENSE](LICENSE "License file").
