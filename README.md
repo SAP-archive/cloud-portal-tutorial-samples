@@ -51,5 +51,4 @@ Please select the **Primary Tag** - `SAP Cloud Platform Portal`.
 ***
 ### License
 
-Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
-This file is licensed under the SAP Sample Code License Agreement except as noted otherwise in the [LICENSE](LICENSE "License file").
+Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, v2.0 except as noted otherwise in the [LICENSE](LICENSE "License file").
