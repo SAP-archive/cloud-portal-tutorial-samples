@@ -1,4 +1,4 @@
-# SAP Cloud Platform Portal Tutorial Samples
+# SAP Cloud Platform Portal (Neo) Tutorial Samples
 
 ***
 ### Description
