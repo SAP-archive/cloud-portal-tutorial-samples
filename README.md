@@ -14,7 +14,7 @@ Please be advised that any downloads are subject to the following:
 
 * These resources are subject to the full terms of the license agreement (see below).
 
-Note: the code samples available in this repository can be using in the Neo environment of SAP Cloud Platform Portal  
+Note: the code samples available in this repository can be using in the Neo environment of SAP Cloud Platform Portal. 
 
 ***
 ### Requirements
