@@ -14,10 +14,11 @@ Please be advised that any downloads are subject to the following:
 
 * These resources are subject to the full terms of the license agreement (see below).
 
+Note: the code samples available in this repository can be using in the Neo environment of SAP Cloud Platform Portal  
 
 ***
 ### Requirements
-The included resources run in SAP Cloud Platform Portal sites available on any SAP Cloud Platform account.
+The included resources run in SAP Cloud Platform Portal (Neo) sites available on any SAP Cloud Platform account.
 To use the resources you need to have:
 1. An SAP Cloud Platform account. Users who don't have an account can register for a free trial account.
 	See [Sign up for a free trial account on SAP Cloud Platform](https://www.sap.com/developer/tutorials/hcp-create-trial-account.html).
