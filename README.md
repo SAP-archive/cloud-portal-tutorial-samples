@@ -1,3 +1,5 @@
+*** This repository is not maintained anymore. For questions, please contact Aviad Rivlin ***
+
 # SAP Cloud Platform Portal (Neo) Tutorial Samples
 
 ***
